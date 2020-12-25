@@ -11,16 +11,29 @@
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script>
         function MeuComponente1(){
-            return React.createElement(MeuComponente2);
+            return (
+                React.createElement('div',null,
+                    React.createElement(MeuComponente2)
+            ))
         }
         function MeuComponente2(){
-            return React.createElement(MeuComponente3);            
+            return (
+                React.createElement('div',null,
+                React.createElement(MeuComponente3)
+            ))            
         }
         function MeuComponente3(){
-            return React.createElement(MeuComponente4);            
+            return (
+                React.createElement('div',null,
+                React.createElement(MeuComponente4)
+            ))            
         }
         function MeuComponente4(){
-            return React.createElement('div',null,'encadeamento componente 4');
+            return (
+                React.createElement('div',null,
+                    React.createElement('p',null,'encadeamento nivel 2 componente 4')
+                )
+            )
         }
 
         function MeuComponente (){
