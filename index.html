@@ -23,15 +23,16 @@
             ))            
         }
         function MeuComponente3(){
+            const nome = 'Renato';
             return (
                 React.createElement('div',null,
-                React.createElement(MeuComponente4)
+                React.createElement(MeuComponente4,{nome : nome})
             ))            
         }
-        function MeuComponente4(){
+        function MeuComponente4(props){
             return (
                 React.createElement('div',null,
-                    React.createElement('p',null,'encadeamento nivel 2 componente 4')
+                    React.createElement('p',null,props.nome)
                 )
             )
         }
