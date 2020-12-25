@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu primeiro ReactJS</title>
 </head>
+
 <body>
     <div id="app"></div>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script>
-        function MeuComponente1(){
+        const NomeContext = React.createContext('nome');
+
+        function MeuComponente1() {
+            const mNome = 'Renato direto';
             return (
-                React.createElement('div',null,
-                    React.createElement(MeuComponente2)
-            ))
+                React.createElement(NomeContext.Provider, { value: mNome },
+                    React.createElement('div', null,
+                        React.createElement(MeuComponente2)
+                    )))
         }
-        function MeuComponente2(){
+        function MeuComponente2() {
             return (
-                React.createElement('div',null,
-                React.createElement(MeuComponente3)
-            ))            
+                React.createElement('div', null,
+                    React.createElement(MeuComponente3)
+                ))
         }
-        function MeuComponente3(){
-            const nome = 'Renato';
+        function MeuComponente3() {
             return (
-                React.createElement('div',null,
-                React.createElement(MeuComponente4,{nome : nome})
-            ))            
+                React.createElement('div', null,
+                    React.createElement(MeuComponente4)
+                ))
         }
-        function MeuComponente4(props){
+        function MeuComponente4() {
             return (
-                React.createElement('div',null,
-                    React.createElement('p',null,props.nome)
+                React.createElement(NomeContext.Consumer, null,
+                    (nome) => (
+                        React.createElement('div', null,
+                        React.createElement('p', null, nome)
+                        )
+                    )
                 )
             )
         }
 
-        function MeuComponente (){
-            return React.createElement('div',null,
+        function MeuComponente() {
+            return React.createElement('div', null,
                 React.createElement(MeuComponente1)
             )
         }
 
         ReactDOM.render(
-            React.createElement (MeuComponente),
+            React.createElement(MeuComponente),
             document.getElementById('app')
         )
     </script>
 </body>
+
 </html>
