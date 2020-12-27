@@ -32,7 +32,12 @@ function MeuComponente4(props) {
   }, 1000);
   return /*#__PURE__*/React.createElement("div", {
     className: "componentes-4"
-  }, /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.telefone, " ", idade));
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    onClick: () => {
+      console.log('CLICOU');
+    }
+  }, "Incrementar"), /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.telefone, " ", idade));
 }
 
 function MeuComponente() {

@@ -46,7 +46,7 @@ function MeuComponente4(props) {
 
     return (
         <div className="componentes-4">
-            
+            <button type="button" onClick={() =>{console.log('CLICOU');}}>Incrementar</button>
             <p>componente4-como string : {props.telefone} {idade}</p>
         </div>
 
