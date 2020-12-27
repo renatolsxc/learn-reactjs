@@ -1,12 +1,12 @@
 const NomeContext = React.createContext('nome');
 
-function MeuComponente1() {
+function MeuComponente1(props) {
     const mNome = 'Renato direto jsx';
    
     return (
         <div className="componente-1">
             <MeuComponente2>
-                <MeuComponente3/>
+                <MeuComponente3 accclickCount={props.accclickCount}/>
             </MeuComponente2>
         </div>
     )
@@ -23,7 +23,7 @@ function MeuComponente2(props) {
     )
 }
 
-function MeuComponente3() {
+function MeuComponente3(props) {
     const [ tel, setTel ] = React.useState('92208514');
 
     setTimeout(function(){
@@ -32,7 +32,7 @@ function MeuComponente3() {
 
     return (
         <div className="componente-3">
-            <MeuComponente4 telefone={tel}/>
+            <MeuComponente4 telefone={tel} accclickCount={props.accclickCount}/>
         </div>
     )
 }
@@ -46,33 +46,47 @@ function MeuComponente4(props) {
 
     return (
         <div className="componentes-4">
-            <button type="button" onClick={() =>{console.log('CLICOU');}}>Incrementar</button>
+            <button type="button" onClick={props.accclickCount}>Incrementar</button>
             <p>componente4-como string : {props.telefone} {idade}</p>
         </div>
 
     )
 }
 
-function MeuComponente() {
+function MeuComponente(props) {
     return (
         <div id="componentes">
             <p>Principal</p>
-            <MeuComponente1 />
+            <MeuComponente1 accclickCount={props.accclickCount} />
         </div>
     )
 }
 
-function MeuComponenteIrmao() {
+function MeuComponenteIrmao(props) {
     return (
-        <h1>Componente Irmao</h1>
+        <div id="meucomponenteirmao">
+            <MeuComponenteIrmao2 count={props.count}/>            
+        </div>
+    )
+}
+
+function MeuComponenteIrmao2(props) {
+    return (
+        <h2>Contador: {props.count}</h2>
     )
 }
 
 function AppComponente() {
+    // mais alto nivel. portanto ele de ter o contador
+    const [ count, setCount ] = React.useState(0);
+    const clickCount = function() {
+        setCount(count + 1)
+    }
+
     return (
         <React.Fragment>
-            <MeuComponente />
-            <MeuComponenteIrmao />
+            <MeuComponente accclickCount={clickCount}/>
+            <MeuComponenteIrmao count={count}/>
         </React.Fragment>
     )
 }
