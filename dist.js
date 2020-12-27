@@ -22,9 +22,13 @@ function MeuComponente3() {
 }
 
 function MeuComponente4(props) {
+  const [idade, setIdade] = React.useState(28);
+  setTimeout(function () {
+    setIdade(29);
+  }, 1000);
   return /*#__PURE__*/React.createElement("div", {
     className: "componentes-4"
-  }, /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.nome));
+  }, /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.nome, " ", idade));
 }
 
 function MeuComponente() {

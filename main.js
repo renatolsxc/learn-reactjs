@@ -32,9 +32,15 @@ function MeuComponente3() {
 }
 
 function MeuComponente4(props) {
+    const [ idade, setIdade ] = React.useState(28);
+
+    setTimeout(function(){
+        setIdade(29)
+    }, 1000)
+
     return (
         <div className="componentes-4">
-            <p>componente4-como string : {props.nome}</p>
+            <p>componente4-como string : {props.nome} {idade}</p>
         </div>
 
     )
