@@ -4,18 +4,21 @@ function MeuComponente1() {
     const mNome = 'Renato direto jsx';
    
     return (
-        <NomeContext.Provider value={mNome}>
-            <div className="componente-1">
-                <MeuComponente2 />                
-            </div>
-        </NomeContext.Provider>
+        <div className="componente-1">
+            <MeuComponente2>
+                <MeuComponente4 nome={mNome}/>
+            </MeuComponente2>
+        </div>
     )
 }
 
-function MeuComponente2() {
+function MeuComponente2(props) {
+    
     return (
         <div className="componente-2">
-            <MeuComponente3 />
+            <div>
+                <div>{props.children}</div>
+            </div>
         </div>
     )
 }
@@ -28,15 +31,12 @@ function MeuComponente3() {
     )
 }
 
-function MeuComponente4() {
+function MeuComponente4(props) {
     return (
-        <NomeContext.Consumer>
-            {(nomeContxt) => (
-                <div className="componentes-4">
-                    <p>{nomeContxt}</p>
-                </div>
-            )}
-        </NomeContext.Consumer>
+        <div className="componentes-4">
+            <p>componente4-como string : {props.nome}</p>
+        </div>
+
     )
 }
 
