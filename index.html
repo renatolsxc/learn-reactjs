@@ -11,52 +11,7 @@
     <div id="app"></div>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script>
-        const NomeContext = React.createContext('nome');
-
-        function MeuComponente1() {
-            const mNome = 'Renato direto';
-            return (
-                React.createElement(NomeContext.Provider, { value: mNome },
-                    React.createElement('div', null,
-                        React.createElement(MeuComponente2)
-                    )))
-        }
-        function MeuComponente2() {
-            return (
-                React.createElement('div', null,
-                    React.createElement(MeuComponente3)
-                ))
-        }
-        function MeuComponente3() {
-            return (
-                React.createElement('div', null,
-                    React.createElement(MeuComponente4)
-                ))
-        }
-        function MeuComponente4() {
-            return (
-                React.createElement(NomeContext.Consumer, null,
-                    (nome) => (
-                        React.createElement('div', null,
-                        React.createElement('p', null, nome)
-                        )
-                    )
-                )
-            )
-        }
-
-        function MeuComponente() {
-            return React.createElement('div', null,
-                React.createElement(MeuComponente1)
-            )
-        }
-
-        ReactDOM.render(
-            React.createElement(MeuComponente),
-            document.getElementById('app')
-        )
-    </script>
+    <script src="dist.js"> </script>
 </body>
 
 </html>
