@@ -6,7 +6,7 @@ function MeuComponente1() {
     return (
         <div className="componente-1">
             <MeuComponente2>
-                <MeuComponente4 nome={mNome}/>
+                <MeuComponente3/>
             </MeuComponente2>
         </div>
     )
@@ -24,9 +24,15 @@ function MeuComponente2(props) {
 }
 
 function MeuComponente3() {
+    const [ tel, setTel ] = React.useState('92208514');
+
+    setTimeout(function(){
+        setTel('85883839')
+    }, 1500)
+
     return (
         <div className="componente-3">
-            <MeuComponente4 />
+            <MeuComponente4 telefone={tel}/>
         </div>
     )
 }
@@ -40,7 +46,7 @@ function MeuComponente4(props) {
 
     return (
         <div className="componentes-4">
-            <p>componente4-como string : {props.nome} {idade}</p>
+            <p>componente4-como string : {props.telefone} {idade}</p>
         </div>
 
     )

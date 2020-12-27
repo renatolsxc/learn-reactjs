@@ -4,9 +4,7 @@ function MeuComponente1() {
   const mNome = 'Renato direto jsx';
   return /*#__PURE__*/React.createElement("div", {
     className: "componente-1"
-  }, /*#__PURE__*/React.createElement(MeuComponente2, null, /*#__PURE__*/React.createElement(MeuComponente4, {
-    nome: mNome
-  })));
+  }, /*#__PURE__*/React.createElement(MeuComponente2, null, /*#__PURE__*/React.createElement(MeuComponente3, null)));
 }
 
 function MeuComponente2(props) {
@@ -16,9 +14,15 @@ function MeuComponente2(props) {
 }
 
 function MeuComponente3() {
+  const [tel, setTel] = React.useState('92208514');
+  setTimeout(function () {
+    setTel('85883839');
+  }, 1500);
   return /*#__PURE__*/React.createElement("div", {
     className: "componente-3"
-  }, /*#__PURE__*/React.createElement(MeuComponente4, null));
+  }, /*#__PURE__*/React.createElement(MeuComponente4, {
+    telefone: tel
+  }));
 }
 
 function MeuComponente4(props) {
@@ -28,7 +32,7 @@ function MeuComponente4(props) {
   }, 1000);
   return /*#__PURE__*/React.createElement("div", {
     className: "componentes-4"
-  }, /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.nome, " ", idade));
+  }, /*#__PURE__*/React.createElement("p", null, "componente4-como string : ", props.telefone, " ", idade));
 }
 
 function MeuComponente() {
