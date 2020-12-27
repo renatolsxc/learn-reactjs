@@ -38,7 +38,15 @@ function MeuComponente4(props) {
 function MeuComponente() {
   return /*#__PURE__*/React.createElement("div", {
     id: "componentes"
-  }, /*#__PURE__*/React.createElement(MeuComponente1, null));
+  }, /*#__PURE__*/React.createElement("p", null, "Principal"), /*#__PURE__*/React.createElement(MeuComponente1, null));
 }
 
-ReactDOM.render( /*#__PURE__*/React.createElement(MeuComponente, null), document.getElementById('app'));
+function MeuComponenteIrmao() {
+  return /*#__PURE__*/React.createElement("h1", null, "Componente Irmao");
+}
+
+function AppComponente() {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(MeuComponente, null), /*#__PURE__*/React.createElement(MeuComponenteIrmao, null));
+}
+
+ReactDOM.render( /*#__PURE__*/React.createElement(AppComponente, null), document.getElementById('app'));

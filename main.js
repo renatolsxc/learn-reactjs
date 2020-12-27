@@ -46,6 +46,7 @@ function MeuComponente4(props) {
 
     return (
         <div className="componentes-4">
+            
             <p>componente4-como string : {props.telefone} {idade}</p>
         </div>
 
@@ -55,12 +56,28 @@ function MeuComponente4(props) {
 function MeuComponente() {
     return (
         <div id="componentes">
+            <p>Principal</p>
             <MeuComponente1 />
         </div>
     )
 }
 
+function MeuComponenteIrmao() {
+    return (
+        <h1>Componente Irmao</h1>
+    )
+}
+
+function AppComponente() {
+    return (
+        <React.Fragment>
+            <MeuComponente />
+            <MeuComponenteIrmao />
+        </React.Fragment>
+    )
+}
+
 ReactDOM.render(
-    <MeuComponente />,
+    <AppComponente />,
     document.getElementById('app')
 )
