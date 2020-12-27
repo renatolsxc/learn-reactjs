@@ -58,6 +58,9 @@ function MeuComponenteIrmao(props) {
 }
 
 function MeuComponenteIrmao2(props) {
+  React.useEffect(function () {
+    console.log('criou ou alterou');
+  });
   return /*#__PURE__*/React.createElement("h2", null, "Contador: ", props.count);
 }
 

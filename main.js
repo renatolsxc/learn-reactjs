@@ -71,6 +71,11 @@ function MeuComponenteIrmao(props) {
 }
 
 function MeuComponenteIrmao2(props) {
+
+    React.useEffect(function() {
+        console.log('criou ou alterou')
+    });
+
     return (
         <h2>Contador: {props.count}</h2>
     )
